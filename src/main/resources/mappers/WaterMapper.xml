@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iya.energy.water.model.dao.WaterMapper">
+    <resultMap id="waterResultMap" type="com.iya.energy.water.model.dto.WaterDTO">
+        <id property="water_id" column="WATER_ID"/>
+        <result property="cost" column="COST"/>
+        <result property="water_usage" column="WATER_USAGE"/>
+        <result property="usetime" column="USETIME"/>
+        <association property="user_id" javaType="com.iya.energy.member.model.dto.MemberDTO">
+            <id property="user_id" column="USER_ID"/>
+        </association>
+    </resultMap>
+
+    <select id="selectAll" resultMap="waterResultMap">
+        SELECT * FROM WATER
+    </select>
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iya.energy.electric.model.dao.ElectricMapper">
+    <resultMap id="electricResultMap" type="com.iya.energy.electric.model.dto.ElectricDTO">
+        <id property="electric_id" column="ELECTRIC_ID"/>
+        <result property="custNo" column="CUST_NO"/>
+        <result property="meterNo" column="METER_NO"/>
+        <result property="mr_ymd" column="MR_YMD"/>
+        <result property="mr_hhmi" column="MR_HHMI"/>
+        <result property="multi_meter_yn" column="MULTI_METER_YN"/>
+        <result property="vld_pwrr" column="VLD_PWRR"/>
+        <result property="pwr_qty" column="PWR_QTY"/>
+        <result property="pwr_qty" column="PWR_QTY"/>
+        <association property="user_id" javaType="com.iya.energy.member.model.dto.MemberDTO">
+            <id property="user_id" column="USER_ID"/>
+        </association>
+    </resultMap>
+
+    <insert id="insertMinuteLpData" parameterType="com.iya.energy.electric.model.dto.ElectricDTO">
+        INSERT INTO minute_lp_data (
+        cust_no, meter_no, mr_ymd, mr_hhmi, multi_meter_yn, vld_pwrr, pwr_qty
+        ) VALUES (
+        #{custNo}, #{meterNo}, #{mr_ymd}, #{mr_hhmi}, #{multi_meter_yn}, #{vld_pwrr}, #{pwr_qty}
+        )
+    </insert>
+
+    <select id="selectAllData" resultMap="electricResultMap">
+    SELECT * FROM ELECTRIC
+    </select>
+</mapper>

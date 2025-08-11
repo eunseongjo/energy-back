@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iya.energy.member.model.dao.MemberMapper">
+    <resultMap id="loginResultMap" type="com.iya.energy.member.model.dto.MemberDTO">
+        <id property="user_id" column="USER_ID"/>
+        <result property="email" column="EMAIL"/>
+        <result property="password" column="PASSWORD"/>
+        <result property="create_time" column="CREATE_TIME"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="loginResultMap">
+        SELECT * FROM USER
+    </select>
+</mapper>
