@@ -9,9 +9,8 @@ spring:
 
 mybatis:
   mapper-locations: classpath:mappers/*.xml
-  configuration:
-    default-statement-timeout: 30
-    map-underscore-to-camel-case: true
-    jdbc-type-for-null: varchar
-    call-setters-on-nulls: true
-    auto-mapping-unknown-column-behavior: none
+
+kakao:
+  auth:
+    client:
+    redirect:
